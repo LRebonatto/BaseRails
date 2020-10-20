@@ -1,0 +1,29 @@
+<%= form_for(Contato.new, :html => {:role => "form"}) do |f| %>
+  <%= f.error_messages %>
+
+  <div class="form-group formulario" align="left">
+    <%= f.label :nome, "Nome", :class => "control-label" %>
+    <%= f.text_field :nome, :class => "form-control input-form", :placeholder => "informe seu nome completo", :required => true %>
+  </div>
+
+  <div class="form-group formulario" align="left">
+    <%= f.label :email, "E-mail", :class => "control-label" %>
+    <%= f.email_field :email, :class => "form-control input-form", :placeholder => "informe seu e-mail", :required => true %>
+  </div>
+
+  <div class="form-group formulario" align="left">
+    <%= f.label :telefone, "Telefone", :class => "control-label" %>
+    <%= f.text_field :telefone, :class => "form-control input-form", :placeholder => "informe seu telefone de contato", "data-mask" => "(99) 99999-9999" %>
+  </div>
+
+  <div class="form-group formulario" align="left">
+    <%= f.label :mensagem, "Mensagem", :class => "control-label" %>
+    <%= f.text_area :mensagem, :class => "form-control textarea-form", :placeholder => "digite aqui a sua mensagem, crítica ou sugestão. Sua opinião é muito importante para nós!", :rows => 5, :required => true %>
+  </div>
+
+  <div class="form-group formulario" align="left">
+    <div class="g-recaptcha" data-sitekey="6LcVMN0UAAAAAPgH7YD5009kdlq_cAN50f8qr5EV" align="center" ></div>
+  </div>
+
+  <%= f.submit "Enviar", :class => "btn btn-success pull-right largura-completa-xs botao-enviar" %>
+<% end %>

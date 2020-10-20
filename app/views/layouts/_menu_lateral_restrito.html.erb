@@ -1,0 +1,225 @@
+<div id="menu-lateral" class="ajustar-menu-lateral container-menu-lateral">
+  <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 ajustar-menu-lateral">
+    <ul id="menu" class="nav nav-pills nav-stacked nav-menu-lateral panel-group">
+      <li align="center">
+        <% if !current_user.imagem_perfil_file_name.blank? %>
+          <%= image_tag(current_user.imagem_perfil.url(:thumb), :class => "img-usuario-menu-lateral") %>
+        <% else %>
+          <%= image_tag("../images/meio/menu_lateral/imagem_padrao.png", :class => "img-usuario-menu-lateral") %>
+        <% end %>
+        <li class="dropdown" align="center">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.nome_completo %> <b class="caret"></b></a>
+          <ul class="dropdown-menu dropdown-ajustar-largura" align="center">
+            <% if valida_menu(8) %>
+              <li>
+                <%= link_to(user_editar_imagem_path, "role" => "button") do %>
+                  <span class="glyphicon glyphicon-picture"></span>
+                  &nbsp;Alterar Imagem
+                <% end %>
+              </li>
+            <% end %>
+            <% if valida_menu(7) %>
+              <li>
+                <%= link_to(user_editar_senha_path, "role" => "button") do %>
+                  <span class="glyphicon glyphicon-lock"></span>
+                  &nbsp;Alterar Senha
+                <% end %>
+              </li>
+            <% end %>
+            <% if valida_menu(6) %>
+              <li>
+                <%= link_to(user_editar_perfil_path, "role" => "button") do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  &nbsp;Editar Perfil
+                <% end %>
+              </li>
+            <% end %>
+            <li>
+              <%= link_to(destroy_user_session_path, :method => :delete, "role" => "button") do %>
+                <span class="glyphicon glyphicon-off"></span>
+                &nbsp;Sair   
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </li>
+      <% if valida_menu(4) || current_user.administrador == 1 %>
+        <!--Administração-->
+        <li class="panel active">
+          <a data-toggle="collapse" data-parent="#menu" href="#collapse-geral">
+            <%= image_tag("../images/meio/menu_lateral/icone_teste.png") %> Administração
+          </a>
+          <% if controller_name == "arearestrita" || controller_name == "permissoes" || controller_name == "grupos" || controller_name == "registrations" %>
+            <ul id="collapse-geral" class="collapsed panel-collapsed collapse in">
+          <% else %>
+            <ul id="collapse-geral" class="collapse panel-collapse">
+          <% end %>
+    <!--         <li>
+              <%#= link_to(permissoes_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-wrench"></span>
+                &nbsp;Cadastro de Permissões
+              <%# end %>
+            </li>
+            <li>
+              <%#= link_to(grupos_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-export"></span>
+                &nbsp;Cadastro de Grupos
+              <%# end %>
+            </li> -->
+            <% if valida_menu(4) %>
+              <li>
+                <%= link_to(users_path, "role" => "button") do %>
+                  <span class="glyphicon glyphicon-user"></span>
+                  &nbsp;Cadastro de Usuários
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <!--Organização-->
+      <% if valida_menu(12) || valida_menu(31) || valida_menu(54) || valida_menu(36) || valida_menu(41) %>
+        <li class="panel">
+          <a data-toggle="collapse" data-parent="#menu" href="#collapse-organizacao">
+            <%= image_tag("../images/meio/menu_lateral/icone_teste.png") %> Organização
+          </a>
+          <% if controller_name == "parceiros" || controller_name == "noticias" || controller_name == "alunos"  || controller_name == "empresas" || controller_name == "links" || controller_name == "depoimentos" %>
+            <ul id="collapse-organizacao" class="collapsed panel-collapsed collapse in">
+          <% else %>
+            <ul id="collapse-organizacao" class="collapse panel-collapse">
+          <% end %>
+          <% if valida_menu(12) %>
+            <li>
+              <%= link_to(parceiros_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-th-large"></span>
+                &nbsp;Cadastro de Parceiros
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(31) %>
+            <li>
+              <%= link_to(noticias_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-star"></span>
+                &nbsp;Cadastro de Notícias
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(36) %>
+            <li>
+              <%= link_to(links_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-cloud"></span>
+                &nbsp;Cadastro de Links
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(41) %>
+            <li>
+              <%= link_to(alunos_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-record"></span>
+                &nbsp;Cadastro de Alunos
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(46) %>
+            <li>
+              <%= link_to(empresas_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-tower"></span>
+                &nbsp;Cadastro de Empresas
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(54) %>
+            <li>
+              <%= link_to(depoimentos_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-comment"></span>
+                &nbsp;Cadastro de Depoimentos
+              <% end %>
+            </li>
+          <% end %>
+            <li>
+              <%= link_to(bairros_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-certificate"></span>
+                &nbsp;Cadastro de Bairros
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to(instituicao_categorias_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-certificate"></span>
+                &nbsp;Cadastro de Categorias de Instituições
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to(instituicoes_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-certificate"></span>
+                &nbsp;Cadastro de Instituições
+              <% end %>
+            </li>
+
+          </ul>
+        </li>
+      <% end %>
+      <!--Produtos-->
+      <% if valida_menu(26) %>
+        <li class="panel">
+          <a data-toggle="collapse" data-parent="#menu" href="#collapse-galerias">
+            <%= image_tag("../images/meio/menu_lateral/icone_teste.png") %> Galerias
+          </a>
+          <% if controller_name == "galerias" %>
+            <ul id="collapse-galerias" class="collapsed panel-collapsed collapse in">
+          <% else %>
+            <ul id="collapse-galerias" class="collapse panel-collapse">
+          <% end %>
+          <% if valida_menu(26) %>
+            <li>
+              <%= link_to(galerias_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-tags"></span>
+                &nbsp;Cadastro de Galerias
+              <% end %>
+            </li>
+          <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <!--Contatos-->
+      <% if valida_menu(20) || valida_menu(48) || valida_menu(58) %>
+        <li class="panel">
+          <a data-toggle="collapse" data-parent="#menu" href="#collapse-contatos">
+            <%= image_tag("../images/meio/menu_lateral/icone_teste.png") %> Contatos
+          </a>
+          <% if controller_name == "contatos" || controller_name == "newsletters" || controller_name == "fichas" %>
+            <ul id="collapse-contatos" class="collapsed panel-collapsed collapse in">
+          <% else %>
+            <ul id="collapse-contatos" class="collapse panel-collapse">
+          <% end %>
+          <% if valida_menu(20) %>
+            <li>
+              <%= link_to(contatos_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-envelope"></span>
+                &nbsp;Contatos do Site
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(48) %>
+            <li>
+              <%= link_to(newsletters_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-list-alt"></span>
+                &nbsp;Newsletter
+              <% end %>
+            </li>
+          <% end %>
+          <% if valida_menu(58) %>
+            <li>
+              <%= link_to(fichas_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-book"></span>
+                &nbsp;Cadastro de Fichas
+              <% end %>
+            </li>
+          <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10">
+  <ol class="breadcrumb">
+    <li><%= link_to("Início", arearestrita_url) %></li>
+    <li><%= link_to("Cadastro de Fichas", fichas_url) %></li>
+    <li class="active">Exibir Ficha</li>
+  </ol>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <ul class="nav navbar-nav navbar-left">
+        <li><h3 class="panel-title">Cadastro de Fichas</h3></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-panel-custom" data-toggle="dropdown">Opções <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <% if valida_menu(56) %>
+              <li>
+                <%= link_to(edit_ficha_path(@ficha), "role" => "button") do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  &nbsp;Editar Ficha
+                <% end %>
+              </li>
+            <% end %>
+            <% if valida_menu(58) %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to(fichas_path, "role" => "button") do %>
+                  <span class="glyphicon glyphicon-tasks"></span>
+                  &nbsp;Listar Fichas
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <div class="row-fluid row-fluid-custom">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Informações Básicas</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>Identificador do Site:</b> <%= @ficha.id.to_s.rjust(6, '0') %></p>
+              <p><b>Nome:</b> <%= @ficha.nome %></p>
+              <p><b>Idade:</b> <%= @ficha.idade %></p> 
+              <p><b>Data de Nascimento:</b> <%= @ficha.nascimento %></p>
+              <p><b>Endereço:</b> <%= @ficha.endereco %></p>
+              <p><b>Número:</b> <%= @ficha.numero %></p>
+              <p><b>Bairro:</b> <%= @ficha.bairro %></p>
+              <p><b>Referência:</b> <%= @ficha.referencia %></p>
+              <p><b>Instituição:</b> <%= @ficha.instituicao %></p> 
+              <p><b>Período:</b> <%= @ficha.periodo %></p> 
+              <p><b>Série:</b> <%= @ficha.serie %></p> 
+              <p><b>Turma:</b> <%= @ficha.turma %></p> 
+              <p><b>Sala:</b> <%= @ficha.sala %></p>
+              <p><b>Professor:</b> <%= @ficha.professor %></p> 
+              <p><b>Responsável:</b> <%= @ficha.responsavel %></p> 
+              <p><b>Nome do Pai:</b> <%= @ficha.nome_pai %></p>
+              <p><b>RG do Pai:</b> <%= @ficha.rg_pai %></p>
+              <p><b>CPF do Pai:</b> <%= @ficha.cpf_pai %></p> 
+              <p><b>Data de Nascimento do Pai:</b> <%= @ficha.data_nascimento_pai %></p> 
+              <p><b>Local de Trabalho do Pai:</b> <%= @ficha.local_trabalho_pai %></p>
+              <p><b>Telefone Comercial do Pai:</b> <%= @ficha.fone_comercial_pai %></p>
+              <p><b>Telefone Residencial do Pai:</b> <%= @ficha.fone_residencial_pai %></p>
+              <p><b>Celular do Pai:</b> <%= @ficha.celular_pai %></p> 
+              <p><b>E-mail do Pai:</b> <%= @ficha.email_pai %></p> 
+              <p><b>Nome da Mãe:</b> <%= @ficha.nome_mae %></p>
+              <p><b>RG da Mãe:</b> <%= @ficha.rg_mae %></p>
+              <p><b>CPF da Mãe:</b> <%= @ficha.cpf_mae %></p> 
+              <p><b>Data de Nascimento da Mãe:</b> <%= @ficha.data_nascimento_mae %></p> 
+              <p><b>Local de Trabalho da Mãe:</b> <%= @ficha.local_trabalho_mae %></p>
+              <p><b>Telefone Comercial da Mãe:</b> <%= @ficha.fone_comercial_mae %></p>
+              <p><b>Telefone Residencial da Mãe:</b> <%= @ficha.fone_residencial_mae %></p>
+              <p><b>Celular da Mãe:</b> <%= @ficha.celular_mae %></p> 
+              <p><b>E-mail da Mãe:</b> <%= @ficha.email_mae %></p> 
+            </div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Informações de Cadastro</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>Cadastrado em:</b> <%= @ficha.created_at.to_s(:data_hora) %></p>
+              <p><b>Status:</b> 
+                <% case @ficha.status %>
+                  <% when 0 %>
+                    Ativo
+                  <% when 1 %>
+                    Inativo
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

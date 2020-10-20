@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= javascript_include_tag "jquery.min.js" %>
+    <%= javascript_include_tag "rails.js" %>
+
+    <!-- BOOTSTRAP -->
+    <%= stylesheet_link_tag "bootstrap.min.css", :media => "screen" %>
+    <%= javascript_include_tag "bootstrap.min.js" %>
+    <%= javascript_include_tag "mask.js" %>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- FONTES -->
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:300,400,600", :media => "screen" %>
+
+    <!-- PROPRIO -->
+    <%= stylesheet_link_tag "animate.css", :media => "screen" %>
+    <%= stylesheet_link_tag "style.css", :media => "screen" %>
+
+    <title>Transportes Anacar - Login</title>
+
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <%= yield %>
+
+  </body>
+</html>

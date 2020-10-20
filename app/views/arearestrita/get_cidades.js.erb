@@ -1,0 +1,5 @@
+$(".cidades_ids").empty();
+
+<% @cidades.each do |item|  %>
+  $(".cidades_ids").append("<option value=<%= item.id %> > <%= j item.nome %> </option>");
+<% end %>

@@ -1,0 +1,11 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo div-corpo-galeria zerar-padding-all">
+    <h1><%= @galeria.nome %></h1>
+    <p><%= @galeria.descricao %></p>
+
+    <%= image_tag(@image.image.url(:medium), :class => "img-responsive", :width => "100%") %>
+  </div>
+</div>

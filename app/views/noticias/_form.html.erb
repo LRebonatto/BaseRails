@@ -1,0 +1,32 @@
+<%= form_for(@noticia, :html => {:multipart => true, :role => "form"}) do |f| %>
+  <%= f.error_messages %>
+  <div class="form-group form-group-custom">
+    <%= f.label :nome, "Nome da Notícia", :class => "control-label" %>
+    <%= f.text_field :nome, :class => "form-control", :placeholder => "informe o nome da Notícia" %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.label :descricao, "Descrição da Notícia", :class => "control-label" %>
+    <%= f.text_area :descricao, :class => "form-control", :placeholder => "informe a descrição da Notícia", :rows => 15 %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.label :slug, "Slug da Notícia", :class => "control-label" %>
+    <%= f.text_field :slug, :class => "form-control", :placeholder => "informe o nome único da Notícia" %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.label :capa, "Imagem de Capa da Notícia", :class => "control-label" %>
+    <%= f.file_field :capa, :class => "form-control" %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.label :status, "Status", :class => "control-label" %>
+    <%= f.select :status, [['Ativo', 0], ['Inativo', 1]], {}, {:class => "form-control"} %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.submit "Salvar", :class => "btn btn-success" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('#noticia_nome').on('input', function() {
+    $('#noticia_slug').val(this.value.replace(/([~!@#$%^&*()_+=`{}\[\]\|\\:;'<>,.\/? ])+/g, '-').replace(/^(-)+|(-)+$/g,''));
+  });
+</script>

@@ -1,0 +1,18 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo div-corpo-galeria zerar-padding-all">
+  <div class="panel panel-success div-painel-contato">
+    <div class="panel-heading fundo-titulo-form">
+      <h1>CADASTRO</h1>
+      <p>Preencha os dados abaixo para solicitar o nosso serviço, solicitamos informar o maior número possível de campos, pois os mesmos serão usados em caso de necessidade de contato. </p>
+    </div>
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-form-contato">
+        <% @ficha = Ficha.new %>
+        <%= render :partial => "fichas/form" %>
+      </div>
+    </div>
+  </div>
+</div>

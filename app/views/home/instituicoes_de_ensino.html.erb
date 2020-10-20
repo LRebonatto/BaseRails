@@ -1,0 +1,28 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-instituicoes-atendidas zerar-padding-all">
+    <h1>INSTITUIÇÕES DE ENSINO</h1>
+    <h4>Veja abaixo as instituições de ensino que a empresa atende.</h4>   
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-instituicoes-atendidas-coluna zerar-padding-all">
+        <% @instituicoes_categorias.each do |instituicao_categoria| %>
+          <% unless instituicao_categoria.instituicoes.blank? %>
+            <h4><%= instituicao_categoria.nome%></h4>
+            <ul>
+              <% instituicao_categoria.instituicoes.where(:status => 0, :deleted => 0).each do |instituicao| %>
+                <li><i class="fa fa-caret-square-o-right"></i><%= instituicao.nome%></li>
+              <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-instituicoes-atendidas-coluna zerar-padding-all">
+        <p> A empresa atende grupos de estudantes para o transporte dos mais diversos colégios para festas infantis sempre que possível nos horários em que a empresa dispõe.</p>
+      </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-scroll-vertical zerar-padding-all">
+  </div>
+</div>

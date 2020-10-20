@@ -1,0 +1,22 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-quem-somos zerar-padding-all">
+      <h1>NOTÍCIAS</h1>
+      <p>Acompanhe aqui o informativo Transportes Anacar com as últimas notícias e novidades</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 div-quem-somos zerar-padding-all">
+      <% @noticias.each do |noticia| %>
+        <%= link_to(exibir_noticia_path(:noticia_id => noticia.id, :noticia_slug => noticia.slug), :class => "noticia_link") do %>
+          <h4><%= noticia.nome %></h4>
+          <p class="noticia"><%= noticia.descricao[0..150] %>...</p>
+          <p class="data"><%= noticia.created_at.to_s(:data) %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-scroll-vertical zerar-padding-all">
+      <%= image_tag("../images/meio/depoimentos.png", :class => "img-responsive", :align => "right") %>
+    </div>
+  </div>
+</div>

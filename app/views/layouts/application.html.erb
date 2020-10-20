@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= javascript_include_tag "jquery.min.js" %>
+    <%= javascript_include_tag "rails.js" %>
+    <%= javascript_include_tag "mask.js" %>
+    
+
+    <!-- BOOTSTRAP -->
+    <%= stylesheet_link_tag "bootstrap.min.css", :media => "screen" %>
+    <%= javascript_include_tag "bootstrap.min.js" %>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!--FONTES-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- PROPRIO -->
+    <%= stylesheet_link_tag "animate.css", :media => "screen" %>
+    <%= stylesheet_link_tag 'style_site.css', :media => "screen" %>
+    <!--[if IE 8]>
+      <%= stylesheet_link_tag 'style_site8.css', :media => "screen" %>
+    <![endif]-->
+    <!--[if IE 7]>
+      <%= stylesheet_link_tag 'style_site7.css', :media => "screen" %>
+    <![endif]-->
+
+    <!-- OWL -->
+    <%= javascript_include_tag "funcoes.js" %>
+    
+    <title>Transportes Anacar</title>
+
+    <meta name="description" content="No início de nossa atividade em 1996 foi empresa pioneira em iniciar o transporte escolar, com monitores (as) como auxiliar para poder melhor atender as crianças transportadas. Também desde 2001 é a única Empresa até o momento que possui um site para disponibilizar aos clientes mais uma ferramenta de contato. Onde os clientes podem enviar um pré cadastro e em seguida é providenciado todos os tramites legais para a prestação do serviço. Além disso, é muito importante registrar os melhores momentos dos eventos em que a empresa proporciona aos estudantes transportados. E através disso alguns desses eventos são fotografados e posteriormente disponibilizados no site as fotos para todos poderem ver. Anualmente a empresa promove a Gincana Anacar, com a participação das crianças, contando com diversas atividades e brincadeiras."/>
+    <meta name="keywords" content="transporte escolar, transportes, transporte de alunos, chapeco, transporte de passageiros"/>
+
+    <link rel="canonical" href="http://www.transportesanacar.com.br/" />
+    <link rel="shortcut icon" href="http://www.transportesanacar.com.br/favicon.ico" type="image/ico" />
+
+    <meta name="Robots" content="index,follow" />
+    <meta name="Googlebot" content="index,follow" />
+    <meta name="Distribution" content="global" />
+    <meta name="Author" content="TwoWeb - Agência Digital Ltda." />
+    <meta name="Copyright" content="(c) 2014 transportesanacar.com.br." />
+
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1">
+
+    <meta property="og:title" content="Transportar vidas com qualidade e segurança, fazendo dos clientes seus maiores vendedores, através de sua satisfação." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Transportes Anacar" />
+    <meta property="og:description" content="Utilizamos veículos em excelente estado de conservação, conduzidos por motoristas experientes, treinados, conscientes da tarefa que desempenham, dos riscos que correm e dos cuidados que devem ter com os passageiros. Os motoristas são auxiliados por monitoras durante o trajeto, o que proporciona tranqüilidade aos Pais." />
+    <% if action_name == "exibir_imagem" %>
+      <meta property="og:url" content="http://www.transportesanacar.com.br/inicio/imagens/exibir/<%= @image.id %>">
+      <meta property="og:image" content="http://www.transportesanacar.com.br<%= @image.image.url %>">
+    <% else %>
+      <meta property="og:url" content="http://www.transportesanacar.com.br">
+      <meta property="og:image" content="http://www.transportesanacar.com.br/images/topo/logo.png?1407291800">
+    <% end %>
+
+    <%= csrf_meta_tag %>
+    <%= render :partial => 'layouts/ga' if RAILS_ENV == 'production' %>
+  </head>
+  <body>
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+    <% end %>
+
+    <div class="container-fluid zerar-padding-all" align="center"> 
+      <div class="limitar-pagina">
+        <%= render :partial => "layouts/topo" %>
+
+        <!-- MEIO -->
+        <div class="container-fluid div-meio zerar-padding-all" align="center"> 
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all">
+            <%= render :partial => "layouts/menu_lateral" %>
+            <%= yield %>
+          </div>
+        </div>
+
+        <%= render :partial => "layouts/rodape" %>
+      </div>
+    </div>
+
+    <!-- RECAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js?" async defer></script> 
+
+  </body>
+</html>

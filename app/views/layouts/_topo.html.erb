@@ -1,0 +1,65 @@
+<!-- TOPO -->
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to(image_tag("../images/topo/logo.png", :class => "img-responsive"), root_path) %>
+        </li>
+        <div class="div-imagens-topo">
+          <%= image_tag("../images/topo/carro1.png", :class => "img-responsive img-left animated fadeInDownBig", :id => "img-01") %>
+          <%= image_tag("../images/topo/carro2.png", :class => "img-responsive img-centro animated fadeInDownBig", :id => "img-02") %>
+          <%= image_tag("../images/topo/carro3.png", :class => "img-responsive img-right animated fadeInDownBig", :id => "img-03") %>
+          <script type="text/javascript">
+            arrCars = new Array();
+            
+            arrCars['url'] =  [
+                                ['/images/topo/carro1.png', '/images/topo/carro2.png', '/images/topo/carro3.png'],
+                                ['/images/topo/carro1.png', '/images/topo/carro2.png', '/images/topo/carro3.png'],
+                                ['/images/topo/carro1.png', '/images/topo/carro2.png', '/images/topo/carro3.png'],
+                              
+                              ];
+            arrCars.push({'url':arrCars['url']});
+
+            arrCars['effect'] =  [
+                                ['animated fadeInDownBig', 'animated fadeInDownBig', 'animated fadeInDownBig'],
+                                ['animated fadeInDownBig', 'animated fadeInDownBig', 'animated fadeInDownBig'],
+                                ['animated fadeInDownBig', 'animated fadeInDownBig', 'animated fadeInDownBig'],
+                               
+                              ];
+            arrCars.push({'effect':arrCars['effect']});
+
+            efeitoCarrosTopo(arrCars);
+          </script>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 
+<% unless session[:popup] || session[:popup] == true %>
+  <% session[:popup] = true %>
+
+  <script charset="utf-8">
+    $(document).ready(function () {
+      $('#modalTopo').modal('show');
+    });
+  </script>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="modalTopo">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class=" modal-top-popup">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body modal-meio-popup">
+          <%= image_tag("meio/natal.jpg", :class => "img-responsive img-center") %>
+        </div>
+        <div class="modal-footer modal-rodape-popup">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+ -->

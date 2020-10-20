@@ -1,0 +1,24 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo div-corpo-galeria zerar-padding-all">
+    <h1>PARCEIROS</h1>
+    <p>Conheça os nossos parceiros<p>
+    <% @parceiros.each do |parceiro| %>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 div-galeria">
+        <% if parceiro.site.blank? %>
+          <%= image_tag(parceiro.capa.url(:thumb), :class => "img-responsive logo-rodape", :title => parceiro.nome, "data-toggle" => "tooltip", "data-placement" => "top") %>
+        <% else %>
+          <%= link_to(image_tag(parceiro.capa.url(:thumb), :class => "img-responsive logo-rodape", :title => parceiro.nome, "data-toggle" => "tooltip", "data-placement" => "top"), parceiro.site, :target => "_blank") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.logo-rodape').tooltip();
+  });
+</script>

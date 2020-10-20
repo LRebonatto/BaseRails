@@ -1,0 +1,78 @@
+<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10">
+  <ol class="breadcrumb">
+    <li><%= link_to("Início", arearestrita_url) %></li>
+    <li><%= link_to("Cadastro de Usuários", users_url) %></li>
+    <li class="active">Exibir Usuário</li>
+  </ol>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <ul class="nav navbar-nav navbar-left">
+        <li><h3 class="panel-title">Cadastro de Usuários</h3></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-panel-custom" data-toggle="dropdown">Opções <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to(new_user_registration_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                &nbsp;Cadastrar Usuário
+              <% end %>
+            </li>
+            <li>
+              <%= link_to(edit_user_registration_path(:id => @user.id), "role" => "button") do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                &nbsp;Editar Usuário
+              <% end %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to(users_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-tasks"></span>
+                &nbsp;Listar Usuários
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <div class="row-fluid row-fluid-custom">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Informações Básicas</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>Código do Usuário:</b> <%= @user.id.to_s.rjust(6, '0') %></p>
+              <p><b>Nome Completo:</b> <span class="show_label_span"><%= @user.nome_completo %></span></p>
+            </div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Informações de Acesso</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>Grupo de Permissões:</b> <span class="show_label_span"><%= @user.grupo.descricao %></span></p>
+              <p><b>Cadastrado em:</b> <span class="show_label_span"><%= @user.created_at.to_s(:data_hora) %></span></p>
+              <p><b>Quantidade de Acessos:</b> <span class="show_label_span"><%= @user.sign_in_count %></span></p>
+              <p><b>Login Atual - Horário:</b> <span class="show_label_span"><%= @user.current_sign_in_at.to_s(:data_hora) if @user.current_sign_in_at %></span></p>
+              <p><b>Último Login - Horário:</b> <span class="show_label_span"><%= current_user.last_sign_in_at.to_s(:data_hora) if @user.last_sign_in_at %></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Informações de Contato</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>E-mail:</b> <span class="show_label_span"><%= @user.email %></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

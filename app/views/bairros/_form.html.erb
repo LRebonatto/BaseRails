@@ -1,0 +1,14 @@
+<%= form_for(@bairro, :html => {:multipart => true, :role => "form"}) do |f| %>
+  <%= f.error_messages %>
+  <div class="form-group form-group-custom">
+    <%= f.label :nome, "Bairro", :class => "control-label" %>
+    <%= f.text_field :nome, :class => "form-control", :placeholder => "informe o bairro" %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.label :status, "Status", :class => "control-label" %>
+    <%= f.select :status, [['Ativo', 0], ['Inativo', 1]], {}, {:class => "form-control"} %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.submit "Salvar", :class => "btn btn-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,162 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-index zerar-padding-all">
+
+    <!--CAIXA 1 -->
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-box div-bx-meio-meio div-quem-somos">
+
+      <!--IMAGEM CAIXA-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-imagem-box">
+        <%= image_tag("../images/meio/bg-caixa.jpg", :class => "animated fadeIn", :id => "img-quem-somos") %>
+      </div>
+      <!--TEXTO CAIXA-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-texto-box">
+        <h1>QUEM SOMOS</h1>
+        <p>Transportar vidas com qualidade e segurança, fazendo dos clientes seus maiores vendedores, através de sua satisfação.</p>
+        <%= link_to("SAIBA MAIS...", home_sobre_path, :class => "btn btn-danger btn-saiba-mais") %>
+      </div>
+      <script type="text/javascript">
+        arrQuemSomos = new Array();
+        
+        arrQuemSomos['url'] =  [
+                            ['/images/meio/quem-somos.jpg'],
+                            ['/images/meio/quem-somos2.jpg'],
+                            ['/images/meio/quem-somos3.jpg']
+                          ];
+        arrQuemSomos.push({'url':arrQuemSomos['url']});
+
+        arrQuemSomos['effect'] =  [
+                            ['animated fadeIn'],
+                            ['animated fadeIn'],
+                            ['animated fadeIn']
+                          ];
+        arrQuemSomos.push({'effect':arrQuemSomos['effect']});
+        efeitoQuemSomos(arrQuemSomos);
+      </script>
+    </div>
+
+
+    <!--CAIXA 2 -->
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 div-conteudo-box div-bx-meio-meio div-nossa-frota">
+
+      <!--IMAGEM CAIXA-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-imagem-box">
+        <%= image_tag("../images/meio/frota.jpg", :class => "animated fadeIn", :id => "img-frota") %>
+      </div>
+      <!--TEXTO CAIXA-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-texto-box">
+        <h1>NOSSA FROTA</h1>
+        <p>Contamos com uma frota com veículos de alta qualidade, sempre acompanhado de revisões periodicas e equipe treinada e capacitada.</p>
+        <%= link_to("SAIBA MAIS...", home_nossa_frota_path, :class => "btn btn-danger btn-saiba-mais") %>
+      </div>
+      <script type="text/javascript">
+        arrNossaFrota = new Array();
+        
+        arrNossaFrota['url'] =  [
+                            ['/images/meio/frota.jpg'],
+                            ['/images/meio/frota1.jpg'],
+                            ['/images/meio/frota2.jpg']
+                          ];
+        arrNossaFrota.push({'url':arrNossaFrota['url']});
+
+        arrNossaFrota['effect'] =  [
+                            ['animated fadeIn'],
+                            ['animated fadeIn'],
+                            ['animated fadeIn']
+                          ];
+        arrNossaFrota.push({'effect':arrNossaFrota['effect']});
+
+        efeitoNossaFrota(arrNossaFrota);
+      </script>
+    </div>
+
+    <!--CAIXA 3 -->
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 div-conteudo-box div-bx-meio-meio div-entre-contato">
+      <!--IMAGEM CAIXA-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-imagem-box">
+        <%= image_tag("../images/meio/contato.jpg") %>
+      </div>
+      <!--TEXTO CAIXA-->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-texto-box">
+        <h1>ENTRE EM CONTATO</h1>
+        <p>Ficou alguma dúvida? Entre agora mesmo em contato com a nossa equipe. Certamente você será bem atendido.</p>
+        <%= link_to("SAIBA MAIS...", home_contato_path, :class => "btn btn-danger btn-saiba-mais") %>
+      </div>
+    </div>
+  </div>
+
+  <!--CAIXAS MENORES INFERIORES -->
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo-inferior zerar-padding-all">
+
+    <!--CAIXA INFERIOR 1 -->
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-conteudo-inferior-box div-bx-meio div-orientacoes">
+      <!--IMAGEM CAIXA INFERIOR 1-->
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 div-conteudo-inferior-imagem-box zerar-padding-all">
+        <%= image_tag("../images/meio/orientacao.jpg") %>
+      </div>
+      <!--TEXTO CAIXA INFERIOR 1-->
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 div-conteudo-inferior-texto-box">
+        <h1>ORIENTAÇÕES</h1>
+        <p>Orientações formuladas com o propósito de tornar o transporte escolar eficiente. Se todos as seguirem, conseguiremos alcançar este objetivo.</p>
+        <%= link_to("SAIBA MAIS...", home_orientacoes_path, :class => "btn btn-danger btn-saiba-mais") %>
+      </div>
+    </div>
+
+    <!--CAIXA INFERIOR 2 -->
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-conteudo-inferior-box div-bx-meio div-galeria">
+      <!--IMAGEM CAIXA INFERIOR 2-->
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 div-conteudo-inferior-imagem-box zerar-padding-all">
+        <%= image_tag("../images/meio/galeria.jpg") %>
+      </div>
+      <!--TEXTO CAIXA INFERIOR 2-->
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 div-conteudo-inferior-texto-box">
+        <h1>GALERIA</h1>
+        <p>Veja a nossa galeria de fotos dos eventos que a Transportes Anacar participa e promove, da nossa equipe e muito mais.</p>
+        <%= link_to("SAIBA MAIS...", home_galeria_path, :class => "btn btn-danger btn-saiba-mais") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% unless session[:popup] || session[:popup] == true %>
+  <%session[:popup] = true %>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+      $('#modal-anacar').modal('show');
+    });
+  </script>
+
+<div class="modal fade modal-inicio" id="modal-anacar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close botao-fechar-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     </div>
+      <div class="modal-body">
+        <div>
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/9XpE0TGM5LY" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<div class="modal fade modal-inicio" id="modal-natal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close botao-fechar-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     </div>
+      <div class="modal-body">
+        <div>
+          <%= image_tag "meio/natal_2017.jpg",:class => "img-responsive" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<%end %> 

@@ -1,0 +1,13 @@
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-bairros-atendidos zerar-padding-all">
+      <h1>BAIRROS ATENDIDOS</h1>
+      <h4>Veja abaixo os bairros que a empresa atende.</h4>   
+      <ul>
+        <% @bairros.each do |bairro| %>
+          <li><i class="fa fa-caret-square-o-right"></i> <%= bairro.nome %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

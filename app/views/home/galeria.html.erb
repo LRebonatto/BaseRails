@@ -1,0 +1,20 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo div-corpo-galeria zerar-padding-all">
+    <h1>GALERIA DE FOTOS</h1>
+    <p>Selecione a galeria do evento que deseja visualizar</p>
+    <% @galerias.each do |galeria| %>
+      <% @capa = Image.where(:galeria_id => galeria.id).order("RAND()").first %>
+      <%= link_to(exibir_galeria_path(:galeria_id => galeria.id, :galeria_slug => galeria.slug)) do %>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 div-galeria-box ">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-galeria-box-interna zerar-padding-all">
+            <%= image_tag(@capa.image.url(:thumb), :class => "img-responsive") %>
+          </div>
+          <h4><%= galeria.nome %></h4>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: anacar
+  pool: 5
+  username: root
+  password: 
+  host: db
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: transportesanacar
+  username: twoweb
+  password: "BDtweb6y86F2j1"
+  host: twoweb3.skymail.prv

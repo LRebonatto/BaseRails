@@ -1,0 +1,140 @@
+<div class="col-xs-12 col-sm-8 col-md-10 col-lg-10">
+  <ol class="breadcrumb">
+    <li><%= link_to("Início", arearestrita_url) %></li>
+    <li><%= link_to("Cadastro de Grupos", grupos_url) %></li>
+    <li class="active">Exibir Grupo</li>
+  </ol>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <ul class="nav navbar-nav navbar-left">
+        <li><h3 class="panel-title">Cadastro de Grupos</h3></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-panel-custom" data-toggle="dropdown">Opções <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to(new_grupo_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-plus-sign"></span>
+                &nbsp;Cadastrar Grupo
+              <% end %>
+            </li>
+            <li>
+              <%= link_to(edit_grupo_path(@grupo), "role" => "button") do %>
+                <span class="glyphicon glyphicon-pencil"></span>
+                &nbsp;Editar Grupo
+              <% end %>
+            </li>
+            <li>
+              <%= link_to(grupos_path, "role" => "button") do %>
+                <span class="glyphicon glyphicon-tasks"></span>
+                &nbsp;Listar Grupos
+              <% end %>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to(new_grupo_permissao_path(:grupo_id => @grupo.id), "role" => "button") do %>
+                <span class="glyphicon glyphicon-wrench"></span>
+                &nbsp;Adicionar Permissão
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-body">
+      <div class="row-fluid row-fluid-custom">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Informações Básicas</h3>
+            </div>
+            <div class="panel-body">
+              <p><b>Código do Grupo:</b> <%= @grupo.id.to_s.rjust(6, '0') %></p>
+              <p><b>Descrição:</b> <%= @grupo.descricao %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Permissões</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <th class="col-md-1 col-lg-1">Código</th>
+                  <th class="col-md-9 col-lg-9">Permissão</th>
+                  <th class="col-md-2 col-lg-2"></th>
+                </thead>
+                <% @permissoes = GrupoPermissao.joins("INNER JOIN permissoes p ON p.id = permissao_id").where("grupo_id = #{@grupo.id}").order("p.descricao ASC").all.paginate(:page => params[:permissoes_page], :per_page => 10) %>
+                <% for item in @permissoes %>
+                  <tbody>
+                    <td><%= item.permissao.id.to_s.rjust(6, '0') %></td>
+                    <td><%= item.permissao.descricao %></td>
+                    <td align="right">
+                      <%= link_to(item, :confirm => 'Você tem certeza?', :method => :delete, :title => "Apagar") do %>
+                        <span class="glyphicon glyphicon-trash"></span>
+                      <% end %>
+                    </td>
+                  </tbody>
+                <% end %>
+              </table>
+              <% if GrupoPermissao.joins("INNER JOIN permissoes p ON p.id = permissao_id").where("grupo_id = #{@grupo.id}").count > 10 %>
+                <div align="center">
+                  <p>
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                      <%= will_paginate @permissoes, :param_name => 'permissoes_page', :container => false, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Usuários</h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <th class="col-md-1 col-lg-1">Código</th>
+                  <th class="col-md-9 col-lg-9">Nome do Usuário</th>
+                  <th class="col-md-2 col-lg-2"></th>
+                </thead>
+                <% @users = User.where("grupo_id = #{@grupo.id}").order("nome_completo ASC").all.paginate(:page => params[:usuarios_page], :per_page => 10) %>
+                <% for item in @users %>
+                  <tbody>
+                    <td><%= item.id.to_s.rjust(6, '0') %></td>
+                    <td><%= item.nome_completo %></td>
+                    <td align="right">
+                      <%= link_to(user_path(:id => item.id), :title => "Visualizar") do %>
+                        <span class="glyphicon glyphicon-zoom-in"></span>
+                      <% end %>
+                      <%= link_to(edit_user_registration_path(:id => item.id), :title => "Editar") do %>
+                        <span class="glyphicon glyphicon-pencil"></span>
+                      <% end %>
+                    </td>
+                  </tbody>
+                <% end %>
+              </table>
+
+              <% if User.where(:grupo_id => @grupo.id).count > 10 %>
+                <div align="center">
+                  <p>
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                      <%= will_paginate @users, :param_name => 'usuarios_page', :container => false, :previous_label => 'Anterior', :next_label => 'Próximo' %>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                  </p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

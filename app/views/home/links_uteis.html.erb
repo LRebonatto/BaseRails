@@ -1,0 +1,21 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO --> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-instituicoes-atendidas div-links-uteis zerar-padding-all">
+    <h1>LINKS ÚTEIS</h1>
+    <p>Oferecemos algumas sugestões de páginas dos mais variados assuntos. Divirta-se!</p>   
+      <% @links.each do |link| %>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-instituicoes-atendidas-coluna zerar-padding-all">
+          <ul>
+            <li>
+              <%= link_to(link.site, :target => "_blank") do %>
+                <i class="fa fa-caret-square-o-right"></i> <%= link.nome %></li>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= image_tag("../images/meio/links.png", :class => "img-responsive") %>
+  </div>
+</div>

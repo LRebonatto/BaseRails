@@ -1,0 +1,33 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-quem-somos zerar-padding-all">
+      <h1>NOTÍCIAS</h1>
+      <p>Acompanhe aqui o informativo Transportes Anacar com as últimas notícias e novidades</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 div-quem-somos zerar-padding-all">
+      <h4><%= @noticia.nome %></h4>
+      <p class="data" style="text-align:left !important;"><%= @noticia.created_at.to_s(:data) %></p>
+      <p class="noticia"><%= @noticia.descricao.gsub("\n", "<br>").html_safe %></p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-scroll-vertical zerar-padding-all">
+      <%= link_to(image_tag(@noticia.capa.url(:medium), :class => "img-responsive img-modal-thumb", :align => "right"), "#", "data-toggle" => "modal", "data-target" => "#modalImagemAmpliada") %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalImagemAmpliada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4><%= @noticia.nome %></h4>
+      </div>
+      <div class="modal-body">
+        <%= image_tag(@noticia.capa.url(:medium), :class => "img-responsive") %>
+      </div>
+    </div>
+  </div>
+</div>

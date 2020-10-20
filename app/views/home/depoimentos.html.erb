@@ -1,0 +1,19 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-quem-somos zerar-padding-all">
+      <h1>DEPOIMENTOS</h1>
+      <p>Veja aqui o depoimento de alguns de nossos clientes, comentando sobre nossos serviços, nossa credibilidade e nossos diferenciais.</p>
+      <%= image_tag("../images/meio/depoimentos.png", :class => "img-responsive", :align => "right", :style => "padding:10px;margin-left:30px;") %>
+
+      <% @depoimentos.each do |depoimento| %>
+        <h4><%= depoimento.nome %></h4>
+        <p class="noticia" style="margin-bottom:20px !important;"><%= depoimento.descricao.gsub("\n", "<br>").html_safe %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-scroll-vertical zerar-padding-all">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<%= form_for(@instituicao, :html => {:multipart => true, :role => "form"}) do |f| %>
+  <%= f.error_messages %>
+  <div class="form-group form-group-custom">
+    <%= f.label :nome, "Instituição", :class => "control-label" %>
+    <%= f.text_field :nome, :class => "form-control", :placeholder => "informe o nome da instituição" %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.label :instituicao_categoria_id, "Categoria", :class => "control-label" %>
+    <%= f.collection_select(:instituicao_categoria_id, @instituicao_categorias, :id, :nome, { :include_blank => "Selecione a categoria" }, :class => "form-control") %>
+  </div>
+
+  <div class="form-group form-group-custom">
+    <%= f.label :status, "Status", :class => "control-label" %>
+    <%= f.select :status, [['Ativo', 0], ['Inativo', 1]], {}, {:class => "form-control"} %>
+  </div>
+  <div class="form-group form-group-custom">
+    <%= f.submit "Salvar", :class => "btn btn-success" %>
+  </div>
+<% end %>

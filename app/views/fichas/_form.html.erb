@@ -1,0 +1,166 @@
+<%= form_for(@ficha, :html => {:role => "form"}) do |f| %>
+  <%= f.error_messages %>
+    <h3>Informações sobre o aluno </h3>
+
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <%= f.label :nome, "Nome do Estudante", :class => "span-label" %>
+    <%= f.text_field :nome, :class => "form-control", :placeholder => "Nome do Estudante", :required => true %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :idade, "Idade do Estudante", :class => "control-label" %>
+    <%= f.text_field :idade, :class => "form-control", :placeholder => "Idade do Estudante" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :nascimento, "Data de Nascimento", :class => "control-label" %>
+    <%= f.text_field :nascimento, :class => "form-control", :placeholder => "Data de Nascimento", :required => true, "data-mask" => "99/99/9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-9 col-md-9 col-lg-9 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :endereco, "Endereço", :class => "control-label" %>
+    <%= f.text_field :endereco, :class => "form-control", :placeholder => "Endereço", :required => true %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-3 col-md-3 col-lg-3 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :numero, "Número", :class => "control-label" %>
+    <%= f.text_field :numero, :class => "form-control", :placeholder => "Número" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :edificio, "Edifício", :class => "control-label" %>
+    <%= f.text_field :edificio, :class => "form-control", :placeholder => "Edifício" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :bloco, "Bloco", :class => "control-label" %>
+    <%= f.text_field :bloco, :class => "form-control", :placeholder => "Bloco" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :apto, "Apto", :class => "control-label" %>
+    <%= f.text_field :apto, :class => "form-control", :placeholder => "Apto" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :bairro, "Bairro", :class => "control-label" %>
+    <%= f.text_field :bairro, :class => "form-control", :placeholder => "Bairro", :required => true %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :referencia, "Ponto de Referência", :class => "control-label" %>
+    <%= f.text_field :referencia, :class => "form-control", :placeholder => "Ponto de Referência", :required => true  %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :cep, "CEP", :class => "control-label" %>
+    <%= f.text_field :cep, :class => "form-control", :placeholder => "Digite o CEP", "data-mask" => "99999-999", :required => true  %>
+  </div>
+
+    <h3>Informações sobre a instituição de ensino </h3>
+
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <%= f.label :instituicao, "Instituição de Ensino", :class => "control-label" %>
+    <%= f.text_field :instituicao, :class => "form-control", :placeholder => "Instituição de Ensino", :required => true %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :periodo, "Período em que estuda", :class => "control-label" %>
+    <%= f.select :periodo, [['Matutino'], ['Vespertino'], ['Noturno']], {}, :class => "form-control", :required => true %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :serie, "Série", :class => "control-label" %>
+    <%= f.text_field :serie, :class => "form-control", :placeholder => "Série" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :turma, "Turma", :class => "control-label" %>
+    <%= f.text_field :turma, :class => "form-control", :placeholder => "Turma" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :sala, "Sala", :class => "control-label" %>
+    <%= f.text_field :sala, :class => "form-control", :placeholder => "Sala" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <%= f.label :professor, "Professor responsável", :class => "control-label" %>
+    <%= f.text_field :professor, :class => "form-control", :placeholder => "Professor responsável" %>
+  </div>
+
+    <h3>Informações sobre os responsáveis </h3>
+
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <%= f.label :responsavel, "Responsável pelo Contrato", :class => "control-label" %>
+    <%= f.text_field :responsavel, :class => "form-control", :placeholder => "Responsável pelo Contrato", :required => true  %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <%= f.label :nome_pai, "Nome do pai", :class => "control-label" %>
+    <%= f.text_field :nome_pai, :class => "form-control", :placeholder => "Nome do pai", :required => true %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :rg_pai, "RG do pai", :class => "control-label" %>
+    <%= f.text_field :rg_pai, :class => "form-control", :placeholder => "RG do pai", :required => true  %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :cpf_pai, "CPF do pai", :class => "control-label" %>
+    <%= f.text_field :cpf_pai, :class => "form-control", :placeholder => "CPF do pai", "data-mask" => "999.999.999-99", :required => true  %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :data_nascimento_pai, "Data de Nascimento do pai", :class => "control-label" %>
+    <%= f.text_field :data_nascimento_pai, :class => "form-control", :placeholder => "Data de Nascimento do pai", "data-mask" => "99/99/9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :local_trabalho_pai, "Local de Trabalho do pai", :class => "control-label" %>
+    <%= f.text_field :local_trabalho_pai, :class => "form-control", :placeholder => "Local de Trabalho do pai" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :fone_comercial_pai, "Fone Comercial do pai", :class => "control-label" %>
+    <%= f.text_field :fone_comercial_pai, :class => "form-control", :placeholder => "Fone Comercial do pai", "data-mask" => "(99)9999-9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :fone_residencial_pai, "Fone Residencial do pai", :class => "control-label" %>
+    <%= f.text_field :fone_residencial_pai, :class => "form-control", :placeholder => "Fone Residencial do pai", "data-mask" => "(99)9999-9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :celular_pai, "Celular do pai", :class => "control-label" %>
+    <%= f.text_field :celular_pai, :class => "form-control", :placeholder => "Celular do pai", :required => true, "data-mask" => "(99)99999-9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :email_pai, "E-mail do pai", :class => "control-label" %>
+    <%= f.text_field :email_pai, :class => "form-control", :placeholder => "E-mail do pai" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <%= f.label :nome_mae, "Nome da mãe", :class => "control-label" %>
+    <%= f.text_field :nome_mae, :class => "form-control", :placeholder => "Nome da mãe" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :rg_mae, "RG da mãe", :class => "control-label" %>
+    <%= f.text_field :rg_mae, :class => "form-control", :placeholder => "RG da mãe", :required => true  %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :cpf_mae, "CPF da mãe", :class => "control-label" %>
+    <%= f.text_field :cpf_mae, :class => "form-control", :placeholder => "CPF da mãe", "data-mask" => "999.999.999-99", :required => true  %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :data_nascimento_mae, "Data de Nascimento da mãe", :class => "control-label" %>
+    <%= f.text_field :data_nascimento_mae, :class => "form-control", :placeholder => "Data de Nascimento da mãe", "data-mask" => "99/99/9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :local_trabalho_mae, "Local de Trabalho da mãe", :class => "control-label" %>
+    <%= f.text_field :local_trabalho_mae, :class => "form-control", :placeholder => "Local de Trabalho da mãe" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :fone_comercial_mae, "Fone Comercial da mãe", :class => "control-label" %>
+    <%= f.text_field :fone_comercial_mae, :class => "form-control", :placeholder => "Fone Comercial da mãe", "data-mask" => "(99)9999-9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :fone_residencial_mae, "Fone Residencial da mãe", :class => "control-label" %>
+    <%= f.text_field :fone_residencial_mae, :class => "form-control", :placeholder => "Fone Residencial da mãe", "data-mask" => "(99)9999-9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-left zerar-padding-right-xs" align="left">
+    <%= f.label :celular_mae, "Celular da mãe", :class => "control-label" %>
+    <%= f.text_field :celular_mae, :class => "form-control", :placeholder => "Celular da mãe", "data-mask" => "(99)99999-9999" %>
+  </div>
+  <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6 zerar-padding-right zerar-padding-left-xs" align="left">
+    <%= f.label :email_mae, "E-mail da mãe", :class => "control-label" %>
+    <%= f.text_field :email_mae, :class => "form-control", :placeholder => "E-mail da mãe" %>
+  </div>
+  <% if action_name == "edit" || action_name == "update" %>
+    <div class="form-group form-group-custom">
+      <%= f.label :status, "Status", :class => "control-label" %>
+      <%= f.select :status, [['Ativo', 0], ['Inativo', 1]], {}, {:class => "form-control"} %>
+    </div>
+  <% end %>
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 zerar-padding-all" align="left">
+    <div class="g-recaptcha" data-sitekey="6LcVMN0UAAAAAPgH7YD5009kdlq_cAN50f8qr5EV" align="center" ></div>
+  </div>
+
+  <%= f.submit "Enviar", :class => "btn btn-success pull-right largura-completa-xs botao-enviar" %>
+<% end %>

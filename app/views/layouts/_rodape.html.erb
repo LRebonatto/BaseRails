@@ -1,0 +1,78 @@
+<!-- RODAPÉ -->
+<div class="col-xs-12 col-sm-12 col-md-12 div-rodape transition">
+
+  <!-- INFOS/MAPA -->
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-rodape-infos-mapa">
+
+    <!-- INFORMAÇÕES -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <%= image_tag("../images/rodape/logo-menor.png", :class => "img-responsive logo-rodape") %>
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="h3-titulo-rodape">Informações Contato</h3>
+        <ul class="ul-info-rodape">
+          <li>Rua José de Alencar, 546E</li>
+          <li> Bairro: São Cristóvão</li>
+          <li>CEP: 89.803-190</li>
+          <li>Chapecó | SC</li>
+          <li>(49) 3322.4516</li>
+          <li>(49) 99184-7718</li>
+          <li><i class="fa fa-whatsapp" style="margin-right: 3px; font-size: 22px;"></i>(49) 99956-2864</li>
+        </ul>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="h3-titulo-rodape">Newsletter</h3>
+        <%= form_for(Newsletter.new, :html => {:role => "form"}) do |f| %>
+          <%= f.text_field :nome, :class => "form-control input-form-rodape", :placeholder => "Nome", :required => true %>
+          <%= f.email_field :email, :class => "form-control input-form-rodape", :placeholder => "E-mail", :required => true %>
+          <%= f.submit "Assinar", :class => "btn btn-form-rodape pull-right largura-completa-xs" %>
+        <% end %>
+    </div>
+    
+    <!-- MAPA -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 div-mapa-rodape" align="center">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3552.013591098754!2d-52.629777849834845!3d-27.092864082967132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e4b431f96dd07f%3A0x968e700ff23a2a8b!2zUi4gSm9zw6kgZGUgQWxlbmNhciwgNTQ2IC0gU8OjbyBDcmlzdMOzdsOjbywgQ2hhcGVjw7MgLSBTQywgODk4MDMtMTkw!5e0!3m2!1spt-BR!2sbr!4v1484243150877" width="275" height="170" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+      <!-- Maps API Javascript -->
+      <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+      
+      <!-- Caixa de informação -->
+      <script src="/javascripts/maps/infobox.js"></script>
+
+      <!-- Agrupamento dos marcadores -->
+      <script src="/javascripts/maps/markerclusterer.js"></script>
+
+      <!-- Arquivo de inicialização do mapa -->
+      <script src="/javascripts/maps/mapa.js"></script>
+
+      <script type="text/javascript">
+        var arrMaps = new Array();
+        arrMaps['icon'] = ['/images/rodape/marker_arafibras.png'];
+        arrMaps['desc'] = ['ANACAR<br><strong>55+ (49) 3322-4516</strong><br><i class="fa fa-whatsapp" style="margin-right: 3px; font-size: 22px;"></i><strong>(49) 99956-2864</strong>'];
+        arrMaps['lat'] = [-27.0928641];
+        arrMaps['long'] = [-52.6297725];
+        initialize('mapa_rodape', '#3E4095', arrMaps['icon'], arrMaps['desc'], arrMaps['lat'], arrMaps['long'], -27.077978,-52.631813);
+      </script>
+  </div>  
+
+  <!-- DIREITOS/LOGO -->
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-rodape-direitos-logo">
+
+    <!-- DIREITOS -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 zerar-padding div-direitos-rodape" align="left">
+      <span>© 2017 Transporte Anacar. Todos os direitos reservados.</span>
+    </div>
+
+    <!-- LOGO -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 zerar-padding div-logo-rodape" align="right">
+      <%= link_to(image_tag("../images/rodape/logo-rodape.png", :class => "img-responsive"), "http://www.twoweb.com.br", :target => "_blank") %>
+    </div>
+
+  </div>
+
+</div>

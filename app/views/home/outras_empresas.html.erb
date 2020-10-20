@@ -1,0 +1,19 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-quem-somos zerar-padding-all">
+      <h1>OUTRAS EMPRESAS</h1>
+      <p>A Transportes Anacar preocupada com a melhoria do transporte escolar de Chapecó, lista abaixo algumas empresas que prestam serviço nesta área em outros bairros e localidades onde ainda não atendemos.</p>
+      <%= image_tag("../images/meio/outras-empresas.png", :class => "img-responsive", :align => "right") %>
+
+      <ul>
+        <% @empresas.each do |empresa| %>
+          <li><%= link_to(empresa.nome, empresa.site, :target => "_blank") %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-scroll-vertical zerar-padding-all">
+    </div>
+  </div>
+</div>

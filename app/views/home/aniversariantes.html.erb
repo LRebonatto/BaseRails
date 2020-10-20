@@ -1,0 +1,20 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo zerar-padding-all">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-quem-somos zerar-padding-all">
+      <h1>ANIVERSARIANTES</h1>
+      <p>A Transportes Anacar parabeniza seus clientes aniversariantes do mês de <%= Date.today.strftime("%B") %></p>
+      <%= image_tag("../images/meio/outras-empresas.png", :class => "img-responsive", :align => "right") %>
+
+      <ul>
+        <% @alunos.each do |aluno| %>
+          <li><%= aluno.data_nascimento.to_s(:data_nascimento) %> - <%= aluno.nome %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-conteudo-scroll-vertical zerar-padding-all">
+    </div>
+  </div>
+</div>

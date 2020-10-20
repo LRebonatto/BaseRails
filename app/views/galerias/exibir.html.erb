@@ -1,0 +1,72 @@
+<!-- CORPO AO LADO DA BARRA LATERAL-->    
+<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 div-caixas zerar-padding-all">
+
+  <!-- CAIXAS DE CONTEÚDO -->    
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-conteudo div-corpo-galeria zerar-padding-all">
+    <h1><%= @galeria.nome %></h1>
+    <p><%= @galeria.descricao %></p>
+
+    <% @images.each_with_index do |image, i| %>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 div-galeria-box ">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 div-galeria-box-interna zerar-padding-all">
+          <label data-target="#carousel-galeria" data-slide-to="0">
+            <a data-toggle="modal" data-target="#modalImagemAmpliada" onClick="javascript:goToSlide(<%= i %>);">
+              <%= image_tag(image.image.url(:thumb), :class => "img-responsive logo img-modal-thumb") %>
+            </a>
+          </label>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalImagemAmpliada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4><%= @galeria.nome %></h4>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=1486639151582194&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+      </div>
+      <div class="modal-body">
+        <div id="carousel-imagens-ampliadas" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @images.each_with_index do |image, i| %>
+              <% if i == 0 %>
+                <div class="item active">
+              <% else %>
+                <div class="item">
+              <% end %>
+                <div class="fb-like" data-href="http://www.transportesanacar.com.br/inicio/imagens/exibir/<%= image.id %>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                <%= image_tag(image.image.url(:medium), :class => "img-responsive") %>
+              </div>
+            <% end %>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-imagens-ampliadas" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-imagens-ampliadas" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function goToSlide(number) {
+     $("#carousel-imagens-ampliadas").carousel(number);
+  }
+</script>
